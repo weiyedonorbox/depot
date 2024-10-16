@@ -3,13 +3,13 @@
 one:
   title: MyString
   description: MyText
-  image_url: MyString
+  image_url: rubys.jpg
   price: 9.99
 
 two:
   title: MyString
   description: MyText
-  image_url: MyString
+  image_url: scales.jpg
   price: 9.99
 
 ruby: 
