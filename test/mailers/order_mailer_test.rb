@@ -1,8 +1,14 @@
 require "test_helper"
 
-class OrderMailerTest < ActionMailer::TestCase 
+class OrderMailerTest < ActionMailer::TestCase
+  fixtures :orders 
+  def setup
+    @order = orders(:one)
+  end
   test "received" do
-    mail = OrderMailer.received(orders(:one))
+    
+    mail = OrderMailer.received(@order)
+    
     assert_equal "Pragmatic Store Order Confirmation", mail.subject
     assert_equal [ "dave@example.org" ], mail.to
     assert_equal [ "depot@example.com" ], mail.from
@@ -13,6 +19,7 @@ class OrderMailerTest < ActionMailer::TestCase
     assert_equal "Pragmatic Store Order Shipped", mail.subject
     assert_equal [ "dave@example.org" ], mail.to
     assert_equal [ "depot@example.com" ], mail.from
+    
     assert_match %r{
     <td[^>]*>1<\/td>\s*
     <td>&times;<\/td>\s*

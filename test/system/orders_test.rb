@@ -1,6 +1,7 @@
 require "application_system_test_case"
 
 class OrdersTest < ApplicationSystemTestCase
+  include ActiveJob::TestHelper
   setup do
     @order = orders(:one)
   end
@@ -74,9 +75,14 @@ class OrdersTest < ApplicationSystemTestCase
     assert_text "Order was successfully destroyed"
   end
 
-  test "check order and delivery" do LineItem.delete_all Order.delete_all
+  test "check order and delivery" do 
+    LineItem.delete_all 
+    Order.delete_all
+
     visit store_index_url
-    click_on "Add to Cart", match: :first click_on "Checkout"
+
+    click_on "Add to Cart", match: :first 
+    click_on "Checkout"
     fill_in "Name", with: "Dave Thomas" 
     fill_in "Address", with: "123 Main Street" 
     fill_in "Email", with: "dave@example.com"

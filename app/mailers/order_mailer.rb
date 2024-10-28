@@ -7,9 +7,9 @@ class OrderMailer < ApplicationMailer
   default from: "Sam Ruby <depot@example.com>"
   def received(order)
     @order = order
-    
+    #debugger
 
-    mail to: order.email, subjet: "Pragmatic Store Order Confirmation"
+    mail to: order.email, subject: "Pragmatic Store Order Confirmation"
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
