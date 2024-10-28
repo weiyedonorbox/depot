@@ -6,8 +6,9 @@ one:
   order: one
 
 two:
-  product: ruby
+  product: two
   cart: one
   order: one
+
 
 

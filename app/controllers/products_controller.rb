@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  skip_before_action :authorize
   before_action :set_product, only: %i[ show edit update destroy ]
 
   # GET /products or /products.json
@@ -51,6 +52,7 @@ class ProductsController < ApplicationController
 
   # DELETE /products/1 or /products/1.json
   def destroy
+    
     @product.destroy!
 
     respond_to do |format|
