@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to admin_url
-      #render json: user, status: 201
+      
     else
       redirect_to login_url, alert: "Invalid user/password combination"
     end
