@@ -58,6 +58,10 @@ en:
         delimiter: ","
         format: "%u%n"
 
+
+  
+  thanks: "Thank you for your order"
+
   orders: 
     new:
       legend: "Please Enter Your Details"
